@@ -1,0 +1,43 @@
+<div class="wrapper container-fluid bg-grey p-28 fullscreen overflow-scroll">
+  <div class="row">
+    <div class="col-sm-12 col-md-2 bg-white p-40 max-height-300">
+      <ul class="list-group">
+        <li class="list-group-item no-border no-padding" *ngFor="let user of userList;let i=index">
+          <label><input type="radio" [value]="user.id" (ngModelChange)="filterTasks()" [(ngModel)]="selectedUser" name="selection" class="mr-2">{{user.name}}</label>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-12 col-md-9 offset-1 bg-white p-36">
+      <div class="d-flex justify-content-between">
+        <div>
+          <p class="font-weight-bold fs-24">Assigned Tasks</p>
+        </div>
+        <div>
+          <span class="fs-20 mr-4 cursor-pointer" (click)="openFilterMenu()">{{filterArray[selectedFilter]}}<i [class.fa-angle-down]="!showPanel" [class.fa-angle-up]="showPanel" class="fas ml-2"></i></span>
+          <span *ngIf="showPanel">
+            <ul class="list-group dropdown-panel">
+              <li class="list-group-item no-border cursor-pointer" *ngFor="let filter of filterArray;let i=index" (click)="sort(i)">{{filter}}</li>
+            </ul>
+          </span>
+          <button class="btn bg-black text-light" (click)="add_edit_Task()">Assign Task</button>
+        </div>
+      </div>
+      <div class="my-4">
+        <table class="table table-bordered align-items-center">
+          <thead>
+            <th class="text-secondary text-center">Task</th>
+            <th class="text-secondary text-center">Assigned By</th>
+            <th class="text-secondary text-center">Assigned To</th>
+            <th class="text-secondary text-center">Action</th>
+          </thead>
+          <tr *ngFor="let task of taskList;let i=index">
+            <td class="text-center w-25 break-word">{{task.description}}</td>
+            <td class="text-center">{{task.assigned_by}}</td>
+            <td class="text-center">{{task.assigned_to}}</td>
+            <td class="text-center"><i (click)="delete(task)" class="far fa-trash-alt text-danger mr-4 cursor-pointer"></i> <i (click)="add_edit_Task('edit', task)" class="cursor-pointer fas fa-pencil-alt text-secondary ml-4"></i></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

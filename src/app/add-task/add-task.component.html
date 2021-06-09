@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="d-flex justify-content-end pt-4 pr-4">
+        <div>
+            <span (click)="closeModal()" class="fas fa-times text-secondary cursor-pointer"></span>
+        </div>
+    </div>
+    <div class="p-60">
+        <h3 class="text-center mb-56">Assign a Task</h3>
+        <form [formGroup]="taskForm">
+        <div class="form-group">
+            <input class="form-control" formControlName="description" placeholder="Task" type="text">
+        </div>
+        <div class="form-group">
+            <select class="form-control" formControlName="assigned_to">
+                <option [value]='null'>Assigned by</option>
+                <option *ngFor="let user of userList" [value]="user.id">{{user.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="form-control" formControlName="assigned_by">
+                <option [value]='null'>Assigned to</option>
+                <option *ngFor="let user of userList" [value]="user.id">{{user.name}}</option>
+            </select>
+        </div>
+    </form>
+    <div class="text-center">
+        <button class="btn bg-black text-light p-6-36" (click)="save()">{{isEdit ? 'Update' : 'Submit'}}</button>
+    </div>
+    </div>
+</div>

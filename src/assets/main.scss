@@ -1,0 +1,63 @@
+body{
+    height: 100%;
+    width: 100%;
+}
+
+// heights and widths
+.h-100-pcent{
+    height: 100%;
+}
+// bg colors
+.bg-grey{
+    background-color: #eeeeee;
+}
+.bg-black{
+    background-color: #000;
+}
+.bg-white{
+    background-color: #fff;
+}
+.bg-cover{
+    background-size: cover;
+}
+//margins and padding
+.p-28{
+    padding: 28px;
+}
+.p-36{
+    padding: 36px;
+}
+.p-40{
+    padding: 40px;
+}
+.p-60 {
+    padding: 40px 60px;
+}
+.mb-8 {
+    margin-bottom: 8px;
+}
+.mb-56{
+    margin-bottom: 48px;
+}
+.fs-20{
+    font-size: 20px;
+}
+.fs-24{
+    font-size: 24px;
+}
+
+.fullscreen{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    height:100%;
+    width:100%;
+}
+
+
+//icons
+.cursor-pointer{
+    cursor: pointer;
+}
